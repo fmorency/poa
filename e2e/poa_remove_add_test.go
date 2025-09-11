@@ -3,6 +3,7 @@ package e2e
 import (
 	"fmt"
 	"testing"
+	"time"
 
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -89,6 +90,8 @@ func TestPOARemoveAdd(t *testing.T) {
 	require.NoError(t, err)
 
 	t.Log("Waiting for chain to stop...")
+
+	time.Sleep(30 * time.Second)
 
 	err = chain.StartAllNodes(ctx)
 	require.NoError(t, err)
